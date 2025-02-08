@@ -1,0 +1,117 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Dancing Script', cursive;
+    background: url('https://img.freepik.com/vector-gratis/fondo-abstracto-bokeh-corazones_1053-257.jpg') no-repeat center center fixed; /* Cambia 'tu_imagen_de_fondo.jpg' por tu imagen */
+    background-size: cover;
+    color: #6d3b47;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+.proposal-card {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 2s ease-in-out;
+    max-width: 500px;
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #e75480;
+}
+
+.message {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1 1 45%;
+}
+
+.yes {
+    background: #e75480;
+    color: white;
+}
+
+.no {
+    background: #f8a5c2;
+    color: #6d3b47;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.music-controls {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#volume-control {
+    width: 100px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .message {
+        font-size: 1rem;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+
+    .music-controls {
+        top: 10px;
+        right: 10px;
+    }
+}

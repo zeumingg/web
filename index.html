@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.x/dist/index.umd.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta Especial</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Música de fondo -->
+    <audio id="background-music" loop>
+        <source src="unablessd.mp3" type="audio/mpeg">
+        Tu navegador no soporta la reproducción de audio.
+    </audio>
+    <div class="music-controls">
+        <button id="play-pause">▶️</button>
+        <input type="range" id="volume-control" min="0" max="1" step="0.1" value="0.5">
+    </div>
+
+    <!-- Contenedor de preguntas -->
+    <div class="container">
+        <!-- Primera pregunta -->
+        <div class="proposal-card" id="question-1">
+            <h1>Hola Josiris, ¿Podemos hablar?</h1>
+            <p class="message">Sé que las cosas no han sido fáciles, pero quiero que sepas que siempre he valorado cada momento a tu lado.</p>
+            <div class="buttons">
+                <button class="btn yes" onclick="nextQuestion(1, 'Sí')">Sí, quiero hablar</button>
+                <button class="btn no" onclick="showNoResponse()">No es el momento</button>
+            </div>
+        </div>
+
+        <!-- Segunda pregunta -->
+        <div class="proposal-card hidden" id="question-2">
+            <h1>¿Recuerdas nuestro primer encuentro?</h1>
+            <p class="message">Fue un día muy especial para mí, me recuerdo que tenias pena y no me querias ni ver y te estabas tapando con una mochila ajajaj. ¿Lo recuerdas con cariño?</p>
+            <div class="buttons">
+                <button class="btn yes" onclick="nextQuestion(2, 'Sí')">Sí, lo recuerdo</button>
+                <button class="btn no" onclick="showNoResponse()">No lo recuerdo</button>
+            </div>
+        </div>
+
+        <!-- Tercera pregunta -->
+        <div class="proposal-card hidden" id="question-3">
+            <h1>Una larga historia...</h1>
+            <p class="message">Han pasado mas de 4 meses desde que te conozco y siento que he pasado buenos momentos contigo, momentos divertidos, lindos, tristes, enojados y mucho mas, esta es la primera vez que le dedico una pagina web completa a una mujer, y esa eres tu💗 ¿Supongo que tienes intriga por saber a que conlleva esto no?</p>
+            <div class="buttons">
+                <button class="btn yes" onclick="nextQuestion(3, 'Sí')">Sí, tengo intriga</button>
+                <button class="btn no" onclick="showNoResponse()">No, no la tengo</button>
+            </div>
+        </div>
+
+        <!-- Cuarta pregunta -->
+        <div class="proposal-card hidden" id="question-4">
+            <h1>¿Crees que podríamos intentarlo de nuevo?</h1>
+            <p class="message">Siento que aún hay algo especial entre nosotros. ¿Tú qué piensas?</p>
+            <div class="buttons">
+                <button class="btn yes" onclick="nextQuestion(4, 'Sí')">Sí, podemos intentarlo</button>
+                <button class="btn no" onclick="showNoResponse()">No lo creo</button>
+            </div>
+        </div>
+
+        <!-- Mensaje si responde "No" en cualquier pregunta -->
+        <div class="proposal-card hidden" id="no-response">
+            <h1>Entiendo tu decisión</h1>
+            <p class="message">Siempre respetaré tus sentimientos. Si cambias de opinión, estaré aquí. 💖</p>
+        </div>
+
+        <!-- Mensaje final (solo si responde "Sí" a todas las preguntas) -->
+        <div class="proposal-card hidden" id="final-message">
+            <h1>Gracias por responder</h1>
+            <p class="message">Tus respuestas significan mucho para mí. 💖</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <audio id="celebration-sound">
+        <source src="celebration.mp3" type="audio/mpeg">
+        Tu navegador no soporta la reproducción de audio.
+    </audio>
+</body>
+</html>
