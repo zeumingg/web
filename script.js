@@ -2,10 +2,12 @@
 const music = document.getElementById('background-music');
 const volumeControl = document.getElementById('volume-control');
 
-// Reproducir la música automáticamente al cargar la página
-window.addEventListener('load', () => {
-    music.play();
-});
+// Reproducir la música después de la primera interacción del usuario
+document.body.addEventListener('click', () => {
+    if (music.paused) {
+        music.play();
+    }
+}, { once: true }); // { once: true } asegura que el evento solo se ejecute una vez
 
 // Ajustar el volumen inicial
 music.volume = 0.5;
