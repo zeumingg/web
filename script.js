@@ -5,7 +5,13 @@ const volumeControl = document.getElementById('volume-control');
 // Reproducir la música después de la primera interacción del usuario
 document.body.addEventListener('click', () => {
     if (music.paused) {
-        music.play();
+        music.play()
+            .then(() => {
+                console.log("Música iniciada correctamente.");
+            })
+            .catch((error) => {
+                console.error("Error al reproducir la música:", error);
+            });
     }
 }, { once: true }); // { once: true } asegura que el evento solo se ejecute una vez
 
@@ -71,5 +77,11 @@ function startFireworks() {
 function playCelebrationSound() {
     const celebrationSound = document.getElementById('celebration-sound');
     celebrationSound.volume = 0.5; // Ajusta el volumen del sonido
-    celebrationSound.play();
+    celebrationSound.play()
+        .then(() => {
+            console.log("Sonido de celebración iniciado correctamente.");
+        })
+        .catch((error) => {
+            console.error("Error al reproducir el sonido de celebración:", error);
+        });
 }
