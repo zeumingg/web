@@ -1,18 +1,16 @@
 // Música de fondo
 const music = document.getElementById('background-music');
-const playPauseButton = document.getElementById('play-pause');
 const volumeControl = document.getElementById('volume-control');
 
-playPauseButton.addEventListener('click', () => {
-    if (music.paused) {
-        music.play();
-        playPauseButton.textContent = '⏸️';
-    } else {
-        music.pause();
-        playPauseButton.textContent = '▶️';
-    }
+// Reproducir la música automáticamente al cargar la página
+window.addEventListener('load', () => {
+    music.play();
 });
 
+// Ajustar el volumen inicial
+music.volume = 0.5;
+
+// Controlar el volumen
 volumeControl.addEventListener('input', () => {
     music.volume = volumeControl.value;
 });
