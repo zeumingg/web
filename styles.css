@@ -15,14 +15,15 @@ body {
     align-items: center;
     height: 100vh;
     padding: 20px;
+    flex-direction: column;
 }
 
 .proposal-card {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 223, 231, 0.9);
     padding: 20px;
     border-radius: 20px;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(255, 192, 203, 0.4);
     animation: fadeIn 2s ease-in-out;
     max-width: 500px;
     width: 100%;
@@ -36,7 +37,7 @@ h1 {
     font-family: 'Great Vibes', cursive;
     font-size: 2.5rem;
     margin-bottom: 20px;
-    color: #e75480;
+    color: #d63384;
 }
 
 .message {
@@ -63,12 +64,12 @@ h1 {
 }
 
 .yes {
-    background: #e75480;
+    background: #ff69b4;
     color: white;
 }
 
 .no {
-    background: #f8a5c2;
+    background: #ffb6c1;
     color: #6d3b47;
 }
 
@@ -84,56 +85,23 @@ h1 {
     display: flex;
     align-items: center;
     gap: 10px;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 223, 231, 0.9);
     padding: 10px 20px;
     border-radius: 50px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 15px rgba(255, 192, 203, 0.4);
     animation: fadeIn 2s ease-in-out;
 }
 
-#volume-control {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100px;
-    height: 8px;
-    background: #f8a5c2;
-    border-radius: 5px;
-    outline: none;
-    opacity: 0.7;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-#volume-control:hover {
-    opacity: 1;
-    transform: scale(1.05);
-}
-
-#volume-control::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    background: #e75480;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-#volume-control::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
-    background: #e75480;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-#volume-control::-webkit-slider-thumb:hover {
-    background: #ff6b9d;
-}
-
-#volume-control::-moz-range-thumb:hover {
-    background: #ff6b9d;
+/* Estilo del contador */
+.timer {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffd700;
+    background: rgba(255, 223, 0, 0.2);
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 5px 15px rgba(255, 223, 0, 0.4);
 }
 
 @keyframes fadeIn {
@@ -160,136 +128,4 @@ h1 {
         top: 10px;
         right: 10px;
     }
-}
-
-/* Corazones animados */
-.hearts-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none; /* Para que no interfieran con los clics */
-    overflow: hidden;
-    z-index: 1; /* Asegura que los corazones estén detrás del contenido */
-}
-
-.heart {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: #ff4d4d; /* Color inicial */
-    opacity: 0.7; /* Transparencia */
-    transform: rotate(-45deg);
-    animation: float 5s infinite ease-in-out, changeColor 3s infinite alternate;
-}
-
-.heart::before,
-.heart::after {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: inherit; /* Hereda el color del corazón */
-    border-radius: 50%;
-}
-
-.heart::before {
-    top: -10px;
-    left: 0;
-}
-
-.heart::after {
-    top: 0;
-    left: 10px;
-}
-
-/* Animación para mover los corazones de un lado a otro */
-@keyframes float {
-    0% {
-        transform: translateX(-100%) rotate(-45deg);
-    }
-    100% {
-        transform: translateX(100vw) rotate(-45deg);
-    }
-}
-
-/* Animación para cambiar el color de los corazones */
-@keyframes changeColor {
-    0% {
-        background-color: #ff4d4d; /* Rojo */
-    }
-    25% {
-        background-color: #ff6b9d; /* Rosa */
-    }
-    50% {
-        background-color: #ff9f4d; /* Naranja */
-    }
-    75% {
-        background-color: #ffd54d; /* Amarillo */
-    }
-    100% {
-        background-color: #ff4d4d; /* Rojo */
-    }
-}
-
-/* Posiciones y tiempos de animación aleatorios */
-.heart:nth-child(1) {
-    top: 10%;
-    animation-duration: 8s;
-    animation-delay: 0s;
-}
-
-.heart:nth-child(2) {
-    top: 20%;
-    animation-duration: 7s;
-    animation-delay: 2s;
-}
-
-.heart:nth-child(3) {
-    top: 30%;
-    animation-duration: 6s;
-    animation-delay: 1s;
-}
-
-.heart:nth-child(4) {
-    top: 40%;
-    animation-duration: 9s;
-    animation-delay: 3s;
-}
-
-.heart:nth-child(5) {
-    top: 50%;
-    animation-duration: 5s;
-    animation-delay: 0s;
-}
-
-.heart:nth-child(6) {
-    top: 60%;
-    animation-duration: 7s;
-    animation-delay: 2s;
-}
-
-.heart:nth-child(7) {
-    top: 70%;
-    animation-duration: 6s;
-    animation-delay: 1s;
-}
-
-.heart:nth-child(8) {
-    top: 80%;
-    animation-duration: 8s;
-    animation-delay: 3s;
-}
-
-.heart:nth-child(9) {
-    top: 90%;
-    animation-duration: 7s;
-    animation-delay: 0s;
-}
-
-.heart:nth-child(10) {
-    top: 100%;
-    animation-duration: 6s;
-    animation-delay: 2s;
 }
