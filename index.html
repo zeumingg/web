@@ -18,7 +18,13 @@
     <div class="music-controls">
         <input type="range" id="volume-control" min="0" max="1" step="0.1" value="0.5">
     </div>
-
+    
+    <!-- Contador de tiempo -->
+    <div class="counter-container">
+        <h2>Tiempo juntos</h2>
+        <div id="countdown"></div>
+    </div>
+    
     <!-- Contenedor de preguntas -->
     <div class="container">
         <!-- Primera pregunta -->
@@ -30,7 +36,7 @@
                 <button class="btn no" onclick="showNoResponse()">No es el momento</button>
             </div>
         </div>
-
+        
         <!-- Segunda pregunta -->
         <div class="proposal-card hidden" id="question-2">
             <h1>¿Recuerdas nuestro primer encuentro?</h1>
@@ -40,7 +46,7 @@
                 <button class="btn no" onclick="showNoResponse()">No lo recuerdo</button>
             </div>
         </div>
-
+        
         <!-- Tercera pregunta -->
         <div class="proposal-card hidden" id="question-3">
             <h1>Una larga historia...</h1>
@@ -50,7 +56,7 @@
                 <button class="btn no" onclick="showNoResponse()">No, no la tengo</button>
             </div>
         </div>
-
+        
         <!-- Cuarta pregunta -->
         <div class="proposal-card hidden" id="question-4">
             <h1>¿Y si... Lo intentamos de nuevo?</h1>
@@ -60,38 +66,54 @@
                 <button class="btn no" onclick="showNoResponse()">No, Creo que debemos esperar</button>
             </div>
         </div>
-
+        
         <!-- Mensaje si responde "No" en cualquier pregunta -->
         <div class="proposal-card hidden" id="no-response">
             <h1>Entiendo tu decisión</h1>
             <p class="message">Siempre respetaré tus sentimientos. Si cambias de opinión, estaré aquí esperandote. 💖</p>
         </div>
-
+        
         <!-- Mensaje final (solo si responde "Sí" a todas las preguntas) -->
         <div class="proposal-card hidden" id="final-message">
             <h1>💘</h1>
             <p class="message">Sí estás viendo esto es porque aceptaste, asi que supongo que nos podemos dar una oportunidad mas, por mi parte prometo darte lo mejor de mi, Te amo Josiris.💖</p>
         </div>
     </div>
-
+    
     <!-- Sonido de celebración -->
     <audio id="celebration-sound">
         <source src="celebration.mp3" type="audio/mpeg">
         Tu navegador no soporta la reproducción de audio.
     </audio>
-
-    <script src="script.js"></script>
+    
+    <script>
+        function updateCountdown() {
+            const startDate = new Date('2024-10-08T00:00:00');
+            const now = new Date();
+            const diff = now - startDate;
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('countdown').innerHTML = `${days} días, ${hours} horas, ${minutes} minutos, ${seconds} segundos`;
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+    
     <div class="hearts-container">
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-</div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+    </div>
 </body>
 </html>
