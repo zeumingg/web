@@ -16,17 +16,44 @@ body {
     height: 100vh;
     padding: 20px;
     flex-direction: column;
+    position: relative;
+}
+
+/* Contador de tiempo */
+#countdown {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #d4af37;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    border-radius: 10px;
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(212, 175, 55, 0.7);
+    }
 }
 
 .proposal-card {
-    background: rgba(255, 223, 231, 0.9);
+    background: rgba(255, 255, 255, 0.9);
     padding: 20px;
     border-radius: 20px;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(255, 192, 203, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     animation: fadeIn 2s ease-in-out;
     max-width: 500px;
     width: 100%;
+    position: relative;
 }
 
 .hidden {
@@ -37,7 +64,7 @@ h1 {
     font-family: 'Great Vibes', cursive;
     font-size: 2.5rem;
     margin-bottom: 20px;
-    color: #d63384;
+    color: #e75480;
 }
 
 .message {
@@ -64,12 +91,12 @@ h1 {
 }
 
 .yes {
-    background: #ff69b4;
+    background: #e75480;
     color: white;
 }
 
 .no {
-    background: #ffb6c1;
+    background: #f8a5c2;
     color: #6d3b47;
 }
 
@@ -78,54 +105,15 @@ h1 {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.music-controls {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(255, 223, 231, 0.9);
-    padding: 10px 20px;
-    border-radius: 50px;
-    box-shadow: 0 5px 15px rgba(255, 192, 203, 0.4);
-    animation: fadeIn 2s ease-in-out;
-}
-
-/* Estilo del contador */
-.timer {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #ffd700;
-    background: rgba(255, 223, 0, 0.2);
-    padding: 10px 20px;
-    border-radius: 20px;
-    margin-bottom: 15px;
-    box-shadow: 0 5px 15px rgba(255, 223, 0, 0.4);
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Responsive design */
 @media (max-width: 600px) {
     h1 {
         font-size: 2rem;
     }
-
     .message {
         font-size: 1rem;
     }
-
     .btn {
         font-size: 0.9rem;
         padding: 8px 16px;
-    }
-
-    .music-controls {
-        top: 10px;
-        right: 10px;
     }
 }
