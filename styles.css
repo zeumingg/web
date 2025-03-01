@@ -2,24 +2,27 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Playfair Display', serif;
     background: url('https://img.freepik.com/vector-gratis/fondo-abstracto-bokeh-corazones_1053-257.jpg') no-repeat center center fixed;
     background-size: cover;
-    color: #6d3b47;
+    color: #5a3a4a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     overflow: hidden;
 }
 
 /* Portada Animada */
 .hero-section {
-    position: relative;
-    height: 100vh;
-    background: url('https://img.freepik.com/vector-gratis/fondo-estrellado-realista_23-2148262222.jpg') no-repeat center center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
     color: white;
     text-align: center;
-    overflow: hidden;
 }
 
 .hero-content {
@@ -57,16 +60,16 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    width: 100%;
     padding: 20px;
+    text-align: center;
 }
 
 .proposal-card, .gallery-section, .promises-section, .final-message {
     background: rgba(255, 255, 255, 0.9);
     padding: 20px;
     border-radius: 20px;
-    text-align: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 2s ease-in-out;
     max-width: 500px;
     width: 100%;
 }
@@ -112,7 +115,7 @@ h1 {
 
 .no {
     background: #f8a5c2;
-    color: #6d3b47;
+    color: #5a3a4a;
 }
 
 .btn:hover {
