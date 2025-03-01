@@ -4,9 +4,9 @@
     <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.x/dist/index.umd.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5 Meses de Amor</title>
+    <title>Propuesta Especial</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Música de fondo -->
@@ -19,67 +19,58 @@
         <input type="range" id="volume-control" min="0" max="1" step="0.1" value="0.5">
     </div>
 
-    <!-- Portada Animada -->
-    <div class="hero-section">
-        <div class="hero-content">
-            <h1 class="floating-text">Celebrando 5 Meses de Amor</h1>
-            <img src="foto-juntos.jpg" alt="Nuestra foto" class="hero-photo">
-            <button class="btn start-btn" onclick="startExperience()">Comenzar</button>
-        </div>
-    </div>
-
-    <!-- Contenedor Principal -->
-    <div class="container hidden">
-        <!-- Sección de Nuestra Historia -->
-        <div class="proposal-card" id="our-story">
-            <h1>Nuestra Historia</h1>
-            <p class="message">
-                Hace 5 meses nuestras vidas se unieron en un camino lleno de amor, risas y momentos inolvidables. 
-                Cada día a tu lado ha sido un regalo. ¿Recuerdas nuestro primer encuentro? 
-                Fue un día mágico, y desde entonces, no he dejado de sonreír.
-            </p>
+    <!-- Contenedor de preguntas -->
+    <div class="container">
+        <!-- Primera pregunta -->
+        <div class="proposal-card" id="question-1">
+            <h1>Hola Josiris, ¿Podemos hablar?</h1>
+            <p class="message">Sé que las cosas no han sido fáciles, pero quiero que sepas que siempre he valorado cada momento a tu lado.</p>
             <div class="buttons">
-                <button class="btn yes" onclick="showSection('gallery-section')">Ver Fotos</button>
-                <button class="btn no" onclick="showSection('promises-section')">Promesas Futuras</button>
+                <button class="btn yes" onclick="nextQuestion(1, 'Sí')">Sí, quiero hablar</button>
+                <button class="btn no" onclick="showNoResponse()">No es el momento</button>
             </div>
         </div>
 
-        <!-- Galería de Fotos -->
-        <div class="gallery-section hidden">
-            <h1>Nuestros Momentos Juntos</h1>
-            <div class="gallery-grid">
-                <img src="foto1.jpg" alt="Foto 1">
-                <img src="foto2.jpg" alt="Foto 2">
-                <img src="foto3.jpg" alt="Foto 3">
-                <!-- Agrega más fotos aquí -->
+        <!-- Segunda pregunta -->
+        <div class="proposal-card hidden" id="question-2">
+            <h1>¿Recuerdas nuestro primer encuentro?</h1>
+            <p class="message">Fue un día muy especial para mí, me recuerdo que tenias pena y no me querias ni ver y te estabas tapando con una mochila ajajaj. ¿Lo recuerdas con cariño?</p>
+            <div class="buttons">
+                <button class="btn yes" onclick="nextQuestion(2, 'Sí')">Sí, lo recuerdo</button>
+                <button class="btn no" onclick="showNoResponse()">No lo recuerdo</button>
             </div>
-            <button class="btn back-btn" onclick="showSection('our-story')">Volver</button>
         </div>
 
-        <!-- Sección de Promesas Futuras -->
-        <div class="promises-section hidden">
-            <h1>Promesas Futuras</h1>
-            <p class="message">
-                En estos 5 meses, he aprendido que contigo quiero construir un futuro lleno de amor y felicidad. 
-                Prometo:
-            </p>
-            <ul class="promises-list">
-                <li>💖 Amarte incondicionalmente cada día.</li>
-                <li>💖 Apoyarte en todos tus sueños y metas.</li>
-                <li>💖 Hacerte reír, incluso en los días difíciles.</li>
-                <li>💖 Cuidar de ti y de nuestra relación siempre.</li>
-            </ul>
-            <button class="btn back-btn" onclick="showSection('our-story')">Volver</button>
+        <!-- Tercera pregunta -->
+        <div class="proposal-card hidden" id="question-3">
+            <h1>Una larga historia...</h1>
+            <p class="message">Han pasado mas de 4 meses desde que te conozco y siento que he pasado buenos momentos contigo, momentos divertidos, lindos, tristes, enojados y mucho mas, esta es la primera vez que le dedico una pagina web completa a una mujer, y esa eres tu💗 ¿Supongo que tienes intriga por saber a que conlleva esto no?</p>
+            <div class="buttons">
+                <button class="btn yes" onclick="nextQuestion(3, 'Sí')">Sí, tengo intriga</button>
+                <button class="btn no" onclick="showNoResponse()">No, no la tengo</button>
+            </div>
         </div>
 
-        <!-- Mensaje Final -->
-        <div class="final-message hidden">
+        <!-- Cuarta pregunta -->
+        <div class="proposal-card hidden" id="question-4">
+            <h1>¿Y si... Lo intentamos de nuevo?</h1>
+            <p class="message">Siento que aún hay algo especial entre nosotros, yo me siento super feliz a tu lado y me encantaria seguir escribiendo una historia de amor por mas tiempo si tu estas dispuesta. ¿Tú qué piensas?</p>
+            <div class="buttons">
+                <button class="btn yes" onclick="nextQuestion(4, 'Sí')">Sí, podemos intentarlo</button>
+                <button class="btn no" onclick="showNoResponse()">No, Creo que debemos esperar</button>
+            </div>
+        </div>
+
+        <!-- Mensaje si responde "No" en cualquier pregunta -->
+        <div class="proposal-card hidden" id="no-response">
+            <h1>Entiendo tu decisión</h1>
+            <p class="message">Siempre respetaré tus sentimientos. Si cambias de opinión, estaré aquí esperandote. 💖</p>
+        </div>
+
+        <!-- Mensaje final (solo si responde "Sí" a todas las preguntas) -->
+        <div class="proposal-card hidden" id="final-message">
             <h1>💘</h1>
-            <p class="message">
-                Gracias por estos 5 meses inolvidables. Eres mi razón para sonreír cada día. 
-                Te amo más de lo que las palabras pueden expresar. 💖
-            </p>
-            <button class="btn back-btn" onclick="showSection('our-story')">Volver</button>
+            <p class="message">Sí estás viendo esto es porque aceptaste, asi que supongo que nos podemos dar una oportunidad mas, por mi parte prometo darte lo mejor de mi, Te amo Josiris.💖</p>
         </div>
     </div>
 
@@ -89,20 +80,18 @@
         Tu navegador no soporta la reproducción de audio.
     </audio>
 
-    <!-- Corazones Animados -->
-    <div class="hearts-container">
-        <div class="heart"></div>
-        <div class="heart"></div>
-        <div class="heart"></div>
-        <div class="heart"></div>
-        <div class="heart"></div>
-        <div class="heart"></div>
-        <div class="heart"></div>
-        <div class="heart"></div>
-        <div class="heart"></div>
-        <div class="heart"></div>
-    </div>
-
     <script src="script.js"></script>
+    <div class="hearts-container">
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+</div>
 </body>
 </html>
