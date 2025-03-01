@@ -1,30 +1,17 @@
 // Música de fondo
 const music = document.getElementById('background-music');
 const volumeControl = document.getElementById('volume-control');
-const playPauseBtn = document.getElementById('play-pause-btn');
 
 // Reproducir la música después de la primera interacción del usuario
 document.body.addEventListener('click', () => {
     if (music.paused) {
         music.play();
-        playPauseBtn.textContent = '⏸️';
     }
 }, { once: true });
 
 // Control de volumen
 volumeControl.addEventListener('input', () => {
     music.volume = volumeControl.value;
-});
-
-// Control de reproducción/pausa
-playPauseBtn.addEventListener('click', () => {
-    if (music.paused) {
-        music.play();
-        playPauseBtn.textContent = '⏸️';
-    } else {
-        music.pause();
-        playPauseBtn.textContent = '⏯️';
-    }
 });
 
 // Función para comenzar la experiencia
