@@ -9,6 +9,49 @@ body {
     overflow: hidden;
 }
 
+/* Portada Animada */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    background: url('https://img.freepik.com/vector-gratis/fondo-estrellado-realista_23-2148262222.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-content {
+    animation: fadeIn 2s ease-in-out;
+}
+
+.hero-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid #e75480;
+    margin: 20px 0;
+    animation: float 3s infinite ease-in-out;
+}
+
+.start-btn {
+    background: #e75480;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.start-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Contenedor Principal */
 .container {
     display: flex;
     justify-content: center;
@@ -17,7 +60,7 @@ body {
     padding: 20px;
 }
 
-.proposal-card {
+.proposal-card, .gallery-section, .promises-section, .final-message {
     background: rgba(255, 255, 255, 0.9);
     padding: 20px;
     border-radius: 20px;
@@ -77,109 +120,55 @@ h1 {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.music-controls {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    display: flex;
-    align-items: center;
+/* Galería de Fotos */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 10px;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 10px 20px;
-    border-radius: 50px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    animation: fadeIn 2s ease-in-out;
+    margin-top: 20px;
 }
 
-#volume-control {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100px;
-    height: 8px;
-    background: #f8a5c2;
-    border-radius: 5px;
-    outline: none;
-    opacity: 0.7;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+.gallery-grid img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#volume-control:hover {
-    opacity: 1;
-    transform: scale(1.05);
+.gallery-grid img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-#volume-control::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    background: #e75480;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background 0.3s ease;
+/* Promesas Futuras */
+.promises-list {
+    text-align: left;
+    font-size: 1.1rem;
+    list-style-type: none;
+    padding: 0;
 }
 
-#volume-control::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
-    background: #e75480;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background 0.3s ease;
+.promises-list li {
+    margin: 10px 0;
 }
 
-#volume-control::-webkit-slider-thumb:hover {
-    background: #ff6b9d;
-}
-
-#volume-control::-moz-range-thumb:hover {
-    background: #ff6b9d;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Responsive design */
-@media (max-width: 600px) {
-    h1 {
-        font-size: 2rem;
-    }
-
-    .message {
-        font-size: 1rem;
-    }
-
-    .btn {
-        font-size: 0.9rem;
-        padding: 8px 16px;
-    }
-
-    .music-controls {
-        top: 10px;
-        right: 10px;
-    }
-}
-
-/* Corazones animados */
+/* Corazones Animados */
 .hearts-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none; /* Para que no interfieran con los clics */
+    pointer-events: none;
     overflow: hidden;
-    z-index: 1; /* Asegura que los corazones estén detrás del contenido */
+    z-index: 1;
 }
 
 .heart {
     position: absolute;
     width: 20px;
     height: 20px;
-    background-color: #ff4d4d; /* Color inicial */
-    opacity: 0.7; /* Transparencia */
+    background-color: #ff4d4d;
+    opacity: 0.7;
     transform: rotate(-45deg);
     animation: float 5s infinite ease-in-out, changeColor 3s infinite alternate;
 }
@@ -190,7 +179,7 @@ h1 {
     position: absolute;
     width: 20px;
     height: 20px;
-    background-color: inherit; /* Hereda el color del corazón */
+    background-color: inherit;
     border-radius: 50%;
 }
 
@@ -204,7 +193,6 @@ h1 {
     left: 10px;
 }
 
-/* Animación para mover los corazones de un lado a otro */
 @keyframes float {
     0% {
         transform: translateX(-100%) rotate(-45deg);
@@ -214,82 +202,10 @@ h1 {
     }
 }
 
-/* Animación para cambiar el color de los corazones */
 @keyframes changeColor {
-    0% {
-        background-color: #ff4d4d; /* Rojo */
-    }
-    25% {
-        background-color: #ff6b9d; /* Rosa */
-    }
-    50% {
-        background-color: #ff9f4d; /* Naranja */
-    }
-    75% {
-        background-color: #ffd54d; /* Amarillo */
-    }
-    100% {
-        background-color: #ff4d4d; /* Rojo */
-    }
-}
-
-/* Posiciones y tiempos de animación aleatorios */
-.heart:nth-child(1) {
-    top: 10%;
-    animation-duration: 8s;
-    animation-delay: 0s;
-}
-
-.heart:nth-child(2) {
-    top: 20%;
-    animation-duration: 7s;
-    animation-delay: 2s;
-}
-
-.heart:nth-child(3) {
-    top: 30%;
-    animation-duration: 6s;
-    animation-delay: 1s;
-}
-
-.heart:nth-child(4) {
-    top: 40%;
-    animation-duration: 9s;
-    animation-delay: 3s;
-}
-
-.heart:nth-child(5) {
-    top: 50%;
-    animation-duration: 5s;
-    animation-delay: 0s;
-}
-
-.heart:nth-child(6) {
-    top: 60%;
-    animation-duration: 7s;
-    animation-delay: 2s;
-}
-
-.heart:nth-child(7) {
-    top: 70%;
-    animation-duration: 6s;
-    animation-delay: 1s;
-}
-
-.heart:nth-child(8) {
-    top: 80%;
-    animation-duration: 8s;
-    animation-delay: 3s;
-}
-
-.heart:nth-child(9) {
-    top: 90%;
-    animation-duration: 7s;
-    animation-delay: 0s;
-}
-
-.heart:nth-child(10) {
-    top: 100%;
-    animation-duration: 6s;
-    animation-delay: 2s;
+    0% { background-color: #ff4d4d; }
+    25% { background-color: #ff6b9d; }
+    50% { background-color: #ff9f4d; }
+    75% { background-color: #ffd54d; }
+    100% { background-color: #ff4d4d; }
 }
