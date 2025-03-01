@@ -19,6 +19,12 @@
         <input type="range" id="volume-control" min="0" max="1" step="0.1" value="0.5">
     </div>
 
+    <!-- Contador de tiempo -->
+    <div class="countdown-container">
+        <h2>Tiempo juntos:</h2>
+        <div id="countdown"></div>
+    </div>
+
     <!-- Contenedor de preguntas -->
     <div class="container">
         <!-- Primera pregunta -->
@@ -30,7 +36,7 @@
                 <button class="btn no" onclick="showNoResponse()">No es el momento</button>
             </div>
         </div>
-
+        
         <!-- Segunda pregunta -->
         <div class="proposal-card hidden" id="question-2">
             <h1>¿Recuerdas nuestro primer encuentro?</h1>
@@ -40,38 +46,18 @@
                 <button class="btn no" onclick="showNoResponse()">No lo recuerdo</button>
             </div>
         </div>
+    </div>
 
-        <!-- Tercera pregunta -->
-        <div class="proposal-card hidden" id="question-3">
-            <h1>Una larga historia...</h1>
-            <p class="message">Han pasado mas de 4 meses desde que te conozco y siento que he pasado buenos momentos contigo, momentos divertidos, lindos, tristes, enojados y mucho mas, esta es la primera vez que le dedico una pagina web completa a una mujer, y esa eres tu💗 ¿Supongo que tienes intriga por saber a que conlleva esto no?</p>
-            <div class="buttons">
-                <button class="btn yes" onclick="nextQuestion(3, 'Sí')">Sí, tengo intriga</button>
-                <button class="btn no" onclick="showNoResponse()">No, no la tengo</button>
-            </div>
-        </div>
+    <!-- Mensaje si responde "No" en cualquier pregunta -->
+    <div class="proposal-card hidden" id="no-response">
+        <h1>Entiendo tu decisión</h1>
+        <p class="message">Siempre respetaré tus sentimientos. Si cambias de opinión, estaré aquí esperandote. 💖</p>
+    </div>
 
-        <!-- Cuarta pregunta -->
-        <div class="proposal-card hidden" id="question-4">
-            <h1>¿Y si... Lo intentamos de nuevo?</h1>
-            <p class="message">Siento que aún hay algo especial entre nosotros, yo me siento super feliz a tu lado y me encantaria seguir escribiendo una historia de amor por mas tiempo si tu estas dispuesta. ¿Tú qué piensas?</p>
-            <div class="buttons">
-                <button class="btn yes" onclick="nextQuestion(4, 'Sí')">Sí, podemos intentarlo</button>
-                <button class="btn no" onclick="showNoResponse()">No, Creo que debemos esperar</button>
-            </div>
-        </div>
-
-        <!-- Mensaje si responde "No" en cualquier pregunta -->
-        <div class="proposal-card hidden" id="no-response">
-            <h1>Entiendo tu decisión</h1>
-            <p class="message">Siempre respetaré tus sentimientos. Si cambias de opinión, estaré aquí esperandote. 💖</p>
-        </div>
-
-        <!-- Mensaje final (solo si responde "Sí" a todas las preguntas) -->
-        <div class="proposal-card hidden" id="final-message">
-            <h1>💘</h1>
-            <p class="message">Sí estás viendo esto es porque aceptaste, asi que supongo que nos podemos dar una oportunidad mas, por mi parte prometo darte lo mejor de mi, Te amo Josiris.💖</p>
-        </div>
+    <!-- Mensaje final (solo si responde "Sí" a todas las preguntas) -->
+    <div class="proposal-card hidden" id="final-message">
+        <h1>💘</h1>
+        <p class="message">Sí estás viendo esto es porque aceptaste, asi que supongo que nos podemos dar una oportunidad mas, por mi parte prometo darte lo mejor de mi, Te amo Josiris.💖</p>
     </div>
 
     <!-- Sonido de celebración -->
@@ -79,19 +65,31 @@
         <source src="celebration.mp3" type="audio/mpeg">
         Tu navegador no soporta la reproducción de audio.
     </audio>
+    
+    <script>
+        function updateCountdown() {
+            const startDate = new Date('2024-10-08T00:00:00');
+            const now = new Date();
+            const diff = now - startDate;
 
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diff / (1000 * 60)) % 60);
+            const seconds = Math.floor((diff / 1000) % 60);
+
+            document.getElementById('countdown').innerHTML = `${days} días, ${hours} horas, ${minutes} minutos, ${seconds} segundos`;
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+    
     <script src="script.js"></script>
     <div class="hearts-container">
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-</div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+    </div>
 </body>
 </html>
