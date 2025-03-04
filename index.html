@@ -4,7 +4,7 @@
     <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.x/dist/index.umd.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Propuesta Especial</title>
+    <title>¡5 Meses de Amor Eterno!</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script&display=swap" rel="stylesheet">
 </head>
@@ -30,7 +30,7 @@
         <!-- Primera pregunta -->
         <div class="proposal-card" id="question-1">
             <h1>Hola Josiris, ¿Podemos hablar?</h1>
-            <p class="message">Sé que las cosas no han sido fáciles, pero quiero que sepas que siempre he valorado cada momento a tu lado.</p>
+            <p class="message">Hoy celebro con alegría y amor nuestros 5 meses juntos, mi vida. Cada día a tu lado ha sido un hermoso capítulo en nuestra historia, lleno de risas, complicidad y dulces momentos. Te amo más de lo que las palabras pueden expresar, y estoy emocionado por todo lo que aún nos espera. 💖</p>
             <div class="buttons">
                 <button class="btn yes" onclick="nextQuestion(1, 'Sí')">Sí, quiero hablar</button>
                 <button class="btn no" onclick="showNoResponse()">No es el momento</button>
@@ -40,10 +40,20 @@
         <!-- Segunda pregunta -->
         <div class="proposal-card hidden" id="question-2">
             <h1>¿Recuerdas nuestro primer encuentro?</h1>
-            <p class="message">Fue un día muy especial para mí, me recuerdo que tenias pena y no me querias ni ver y te estabas tapando con una mochila ajajaj. ¿Lo recuerdas con cariño?</p>
+            <p class="message">Fue un día muy especial para mí, me recuerdo que tenías pena y no me querías ni ver y te estabas tapando con una mochila ajajaj. ¿Lo recuerdas con cariño?</p>
             <div class="buttons">
                 <button class="btn yes" onclick="nextQuestion(2, 'Sí')">Sí, lo recuerdo</button>
                 <button class="btn no" onclick="showNoResponse()">No lo recuerdo</button>
+            </div>
+        </div>
+
+        <!-- Nueva pregunta -->
+        <div class="proposal-card hidden" id="question-3">
+            <h1>¿Cuál ha sido tu momento favorito de estos 5 meses?</h1>
+            <p class="message">Me encantaría saber qué momento atesoras más. 💖</p>
+            <div class="buttons">
+                <button class="btn yes" onclick="nextQuestion(3, 'Sí')">¡Definitivamente!</button>
+                <button class="btn no" onclick="showNoResponse()">No estoy seguro</button>
             </div>
         </div>
     </div>
@@ -51,13 +61,13 @@
     <!-- Mensaje si responde "No" en cualquier pregunta -->
     <div class="proposal-card hidden" id="no-response">
         <h1>Entiendo tu decisión</h1>
-        <p class="message">Siempre respetaré tus sentimientos. Si cambias de opinión, estaré aquí esperandote. 💖</p>
+        <p class="message">Siempre respetaré tus sentimientos. Si cambias de opinión, estaré aquí esperándote. 💖</p>
     </div>
 
     <!-- Mensaje final (solo si responde "Sí" a todas las preguntas) -->
     <div class="proposal-card hidden" id="final-message">
         <h1>💘</h1>
-        <p class="message">Sí estás viendo esto es porque aceptaste, asi que supongo que nos podemos dar una oportunidad mas, por mi parte prometo darte lo mejor de mi, Te amo Josiris.💖</p>
+        <p class="message">¡Hoy celebramos 5 meses juntos! Cada día a tu lado ha sido especial. Te amo, Josiris. 💖</p>
     </div>
 
     <!-- Sonido de celebración -->
@@ -68,28 +78,4 @@
     
     <script>
         function updateCountdown() {
-            const startDate = new Date('2024-10-08T00:00:00');
-            const now = new Date();
-            const diff = now - startDate;
-
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-            const minutes = Math.floor((diff / (1000 * 60)) % 60);
-            const seconds = Math.floor((diff / 1000) % 60);
-
-            document.getElementById('countdown').innerHTML = `${days} días, ${hours} horas, ${minutes} minutos, ${seconds} segundos`;
-        }
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-    </script>
-    
-    <script src="script.js"></script>
-    <div class="hearts-container">
-        <div class="heart"></div>
-        <div class="heart"></div>
-        <div class="heart"></div>
-        <div class="heart"></div>
-        <div class="heart"></div>
-    </div>
-</body>
-</html>
+            const startDate = new Date('2023-05-08T00:00:00'); // Cambia esta fecha a la fecha de
