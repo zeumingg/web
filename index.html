@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.x/dist/index.umd.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta Especial</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Música de fondo -->
+    <audio id="background-music" loop>
+        <source src="unablessd.mp3" type="audio/mpeg">
+        Tu navegador no soporta la reproducción de audio.
+    </audio>
+    <!-- Control de volumen -->
+    <div class="music-controls">
+        <input type="range" id="volume-control" min="0" max="1" step="0.1" value="0.5">
+    </div>
+
+    <!-- Contador de tiempo -->
+    <div class="countdown-container">
+        <h2>Tiempo juntos:</h2>
+        <div id="countdown"></div>
+    </div>
+
+    <!-- Contenedor de preguntas -->
+    <div class="container">
+        <!-- Primera pregunta -->
+        <div class="proposal-card" id="question-1">
+            <h1>Hola Josiris, ¿Podemos hablar?</h1>
+            <p class="message">Sé que las cosas no han sido fáciles, pero quiero que sepas que siempre he valorado cada momento a tu lado.</p>
+            <div class="buttons">
+                <button class="btn yes" onclick="nextQuestion(1, 'Sí')">Sí, quiero hablar</button>
+                <button class="btn no" onclick="showNoResponse()">No es el momento</button>
+            </div>
+        </div>
+        
+        <!-- Segunda pregunta -->
+        <div class="proposal-card hidden" id="question-2">
+            <h1>¿Recuerdas nuestro primer encuentro?</h1>
+            <p class="message">Fue un día muy especial para mí, me recuerdo que tenias pena y no me querias ni ver y te estabas tapando con una mochila ajajaj. ¿Lo recuerdas con cariño?</p>
+            <div class="buttons">
+                <button class="btn yes" onclick="nextQuestion(2, 'Sí')">Sí, lo recuerdo</button>
+                <button class="btn no" onclick="showNoResponse()">No lo recuerdo</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mensaje si responde "No" en cualquier pregunta -->
+    <div class="proposal-card hidden" id="no-response">
+        <h1>Entiendo tu decisión</h1>
+        <p class="message">Siempre respetaré tus sentimientos. Si cambias de opinión, estaré aquí esperandote. 💖</p>
+    </div>
+
+    <!-- Mensaje final (solo si responde "Sí" a todas las preguntas) -->
+    <div class="proposal-card hidden" id="final-message">
+        <h1>💘</h1>
+        <p class="message">Sí estás viendo esto es porque aceptaste, asi que supongo que nos podemos dar una oportunidad mas, por mi parte prometo darte lo mejor de mi, Te amo Josiris.💖</p>
+    </div>
+
+    <!-- Sonido de celebración -->
+    <audio id="celebration-sound">
+        <source src="celebration.mp3" type="audio/mpeg">
+        Tu navegador no soporta la reproducción de audio.
+    </audio>
+    
+    <script>
+        function updateCountdown() {
+            const startDate = new Date('2024-10-08T00:00:00');
+            const now = new Date();
+            const diff = now - startDate;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diff / (1000 * 60)) % 60);
+            const seconds = Math.floor((diff / 1000) % 60);
+
+            document.getElementById('countdown').innerHTML = `${days} días, ${hours} horas, ${minutes} minutos, ${seconds} segundos`;
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+    
+    <script src="script.js"></script>
+    <div class="hearts-container">
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+    </div>
+</body>
+</html>
