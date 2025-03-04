@@ -1,80 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.x/dist/index.umd.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡5 Meses de Amor Eterno!</title>
+    <title>Carta de Amor</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Música de fondo -->
-    <audio id="background-music" loop>
-        <source src="unablessd.mp3" type="audio/mpeg">
-        Tu navegador no soporta la reproducción de audio.
-    </audio>
-    <!-- Control de volumen -->
-    <div class="music-controls">
-        <input type="range" id="volume-control" min="0" max="1" step="0.1" value="0.5">
-    </div>
-
-    <!-- Contador de tiempo -->
-    <div class="countdown-container">
-        <h2>Tiempo juntos:</h2>
-        <div id="countdown" class="countdown-box"></div>
-    </div>
-
-    <!-- Contenedor de preguntas -->
-    <div class="container">
-        <!-- Primera pregunta -->
-        <div class="proposal-card" id="question-1">
-            <h1>Hola Josiris, ¿Podemos hablar?</h1>
-            <p class="message">Hoy celebro con alegría y amor nuestros 5 meses juntos, mi vida. Cada día a tu lado ha sido un hermoso capítulo en nuestra historia, lleno de risas, complicidad y dulces momentos. Te amo más de lo que las palabras pueden expresar, y estoy emocionado por todo lo que aún nos espera. 💖</p>
-            <div class="buttons">
-                <button class="btn yes" onclick="nextQuestion(1, 'Sí')">Sí, quiero hablar</button>
-                <button class="btn no" onclick="showNoResponse()">No es el momento</button>
-            </div>
-        </div>
-        
-        <!-- Segunda pregunta -->
-        <div class="proposal-card hidden" id="question-2">
-            <h1>¿Recuerdas nuestro primer encuentro?</h1>
-            <p class="message">Fue un día muy especial para mí, me recuerdo que tenías pena y no me querías ni ver y te estabas tapando con una mochila ajajaj. ¿Lo recuerdas con cariño?</p>
-            <div class="buttons">
-                <button class="btn yes" onclick="nextQuestion(2, 'Sí')">Sí, lo recuerdo</button>
-                <button class="btn no" onclick="showNoResponse()">No lo recuerdo</button>
-            </div>
-        </div>
-
-        <!-- Nueva pregunta -->
-        <div class="proposal-card hidden" id="question-3">
-            <h1>¿Cuál ha sido tu momento favorito de estos 5 meses?</h1>
-            <p class="message">Me encantaría saber qué momento atesoras más. 💖</p>
-            <div class="buttons">
-                <button class="btn yes" onclick="nextQuestion(3, 'Sí')">¡Definitivamente!</button>
-                <button class="btn no" onclick="showNoResponse()">No estoy seguro</button>
-            </div>
+    <div class="envelope" id="envelope">
+        <div class="flap"></div>
+        <div class="letter" id="letter">
+            <h1>Mi Querido Amor,</h1>
+            <p>Desde el momento en que te vi, supe que eras especial. Cada día a tu lado es un regalo que atesoro.</p>
+            <p>Con todo mi amor,</p>
+            <p>Tu Amante</p>
         </div>
     </div>
-
-    <!-- Mensaje si responde "No" en cualquier pregunta -->
-    <div class="proposal-card hidden" id="no-response">
-        <h1>Entiendo tu decisión</h1>
-        <p class="message">Siempre respetaré tus sentimientos. Si cambias de opinión, estaré aquí esperándote. 💖</p>
-    </div>
-
-    <!-- Mensaje final (solo si responde "Sí" a todas las preguntas) -->
-    <div class="proposal-card hidden" id="final-message">
-        <h1>💘</h1>
-        <p class="message">¡Hoy celebramos 5 meses juntos! Cada día a tu lado ha sido especial. Te amo, Josiris. 💖</p>
-    </div>
-
-    <!-- Sonido de celebración -->
-    <audio id="celebration-sound">
-        <source src="celebration.mp3" type="audio/mpeg">
-        Tu navegador no soporta la reproducción de audio.
-    </audio>
-    
-    <script>
-        function updateCountdown()
+    <button id="toggleButton">Abrir/Cerrar Carta</button>
+    <script src="script.js"></script>
+</body>
+</html>
